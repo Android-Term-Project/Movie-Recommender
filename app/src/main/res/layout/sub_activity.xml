@@ -13,36 +13,46 @@
 
     <TextView
         android:id="@+id/movie_title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:textStyle=""
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/movie_image" />
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif-black"
+        android:layout_below="@id/movie_image"
+        android:layout_centerInParent="true"/>
 
     <TextView
         android:id="@+id/movie_overview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:textSize="16sp"
         android:textStyle="bold"
         android:layout_below="@id/movie_title" />
 
-    <Button
-        android:id="@+id/btnReturn"
+    <!-- LinearLayout을 추가하여 버튼들을 수평으로 정렬하고 각각 절반씩 차지하게 함 -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="돌아가기"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_below="@id/movie_overview" />
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnRecommender"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="추천 영화"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_below="@id/btnReturn" />
+        <Button
+            android:id="@+id/btnReturn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="돌아가기"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnRecommender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="추천 영화"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.example.practice1
+package com.android_project.movie_recommender
 
 import android.os.Bundle
 import android.util.Log
@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.practice1.databinding.RecyclerViewBinding
+import com.android_project.movie_recommender.databinding.RecyclerViewBinding
 import com.google.gson.Gson
 import okhttp3.Call
 import okhttp3.Callback
