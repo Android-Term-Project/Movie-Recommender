@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/movie_image"
+        android:layout_width="300dp"
+        android:layout_height="450dp"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/movie_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle=""
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/movie_image" />
+
+    <TextView
+        android:id="@+id/movie_overview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_below="@id/movie_title" />
+
+    <Button
+        android:id="@+id/btnReturn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="돌아가기"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_below="@id/movie_overview" />
+
+    <Button
+        android:id="@+id/btnRecommender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="추천 영화"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_below="@id/btnReturn" />
+</RelativeLayout>
