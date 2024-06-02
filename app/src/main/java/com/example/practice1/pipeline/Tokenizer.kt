@@ -1,4 +1,4 @@
-package com.example.movierecommender.pipeline
+package com.example.practice1.pipeline
 
 import android.content.Context
 import java.io.BufferedReader

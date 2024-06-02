@@ -1,12 +1,12 @@
-package com.example.movierecommender.pipeline
+package com.example.practice1.pipeline
 
 import org.apache.commons.math3.linear.MatrixUtils
 import org.apache.commons.math3.linear.RealMatrix
 
-class GenreSimilarity(private val movies: List<Movie>) {
+class GenreSimilarity(private val movies: List<MovieData>) {
     private val genreMatrix: RealMatrix = buildGenreMatrix(movies)
 
-    private fun buildGenreMatrix(movies: List<Movie>): RealMatrix {
+    private fun buildGenreMatrix(movies: List<MovieData>): RealMatrix {
         val rowCount = movies.size
         val colCount = movies.flatMap { it.genres }.distinct().maxOrNull()?.plus(1) ?: 0
         val matrix = MatrixUtils.createRealMatrix(rowCount, colCount)

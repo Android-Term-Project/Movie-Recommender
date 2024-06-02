@@ -60,7 +60,7 @@ class RecyclerViewActivity : AppCompatActivity() {
         val api_key = "baa012ef8e89d16afdf7a0ad280fc6c2"
         val client = OkHttpClient()
         val request = Request.Builder()
-            .url("https://api.themoviedb.org/3/movie/popular?page=${page}&api_key=${api_key}")
+            .url("https://api.themoviedb.org/3/movie/top_rated?page=${page}&api_key=${api_key}")
             .build()
 
         client.newCall(request).enqueue(object : Callback {
