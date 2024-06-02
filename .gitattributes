@@ -1,0 +1,2 @@
+distilbert_traced.ptl filter=lfs diff=lfs merge=lfs -text
+/Users/jeongjiyun/Desktop/Dev/AI/movie-recommender/app/src/main/assets/distilbert_traced.ptl filter=lfs diff=lfs merge=lfs -text
