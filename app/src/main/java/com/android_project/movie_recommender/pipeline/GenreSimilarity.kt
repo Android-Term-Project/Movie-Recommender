@@ -1,4 +1,4 @@
-package com.example.practice1.pipeline
+package com.android_project.movie_recommender.pipeline
 
 import org.apache.commons.math3.linear.MatrixUtils
 import org.apache.commons.math3.linear.RealMatrix

@@ -1,4 +1,4 @@
-package com.example.practice1
+package com.android_project.movie_recommender
 
 import android.content.Intent
 import android.os.Bundle

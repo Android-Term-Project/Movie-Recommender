@@ -1,19 +1,12 @@
-package com.example.practice1
+package com.android_project.movie_recommender
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.practice1.databinding.ItemMainBinding
-import com.example.practice1.pipeline.MovieData // Importing MovieData if this is the object used in the adapter
-import com.google.gson.Gson
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
-import java.io.IOException
+import com.android_project.movie_recommender.databinding.ItemMainBinding
+import com.android_project.movie_recommender.pipeline.MovieData
 
 class RecommenderViewHolder(val binding: ItemMainBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -30,7 +23,7 @@ class RecommenderAdapter(private val datas: MutableList<MovieData>, private val 
         val movie = datas[position]
         val binding = holder.binding
 
-        binding.itemData.text = movie.title
+        binding.itemDataTitle.text = movie.title
 
         if (imageUrls.size > position) {
             Glide.with(holder.itemView.context)

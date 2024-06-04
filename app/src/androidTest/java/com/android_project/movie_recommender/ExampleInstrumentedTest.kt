@@ -1,4 +1,4 @@
-package com.example.practice1
+package com.android_project.movie_recommender
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

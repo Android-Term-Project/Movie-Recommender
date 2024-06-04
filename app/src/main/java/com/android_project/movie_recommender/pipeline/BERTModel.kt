@@ -1,4 +1,4 @@
-package com.example.practice1.pipeline
+package com.android_project.movie_recommender.pipeline
 
 import android.content.Context
 import org.pytorch.IValue

@@ -1,4 +1,4 @@
-package com.example.practice1
+package com.android_project.movie_recommender
 
 import android.os.Bundle
 import android.widget.Button
@@ -9,12 +9,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.practice1.databinding.RecommenderActivityBinding
-import com.example.practice1.databinding.RecyclerViewBinding
-import com.example.practice1.pipeline.BERTInference
-import com.example.practice1.pipeline.GenreSimilarity
-import com.example.practice1.pipeline.MovieDataLoader
-import com.example.practice1.pipeline.MovieData
+import com.android_project.movie_recommender.databinding.RecommenderActivityBinding
+import com.android_project.movie_recommender.databinding.RecyclerViewBinding
+import com.android_project.movie_recommender.pipeline.BERTInference
+import com.android_project.movie_recommender.pipeline.GenreSimilarity
+import com.android_project.movie_recommender.pipeline.MovieDataLoader
+import com.android_project.movie_recommender.pipeline.MovieData
 import com.google.gson.Gson
 import okhttp3.Call
 import okhttp3.Callback

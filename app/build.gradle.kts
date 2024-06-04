@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.practice1"
+    namespace = "com.android_project.movie_recommender"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.practice1"
+        applicationId = "com.android_project.movie_recommender"
         minSdk = 29
         targetSdk = 34
         versionCode = 1
