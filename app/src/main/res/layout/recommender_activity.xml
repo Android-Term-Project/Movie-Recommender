@@ -4,19 +4,32 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/rcm_movie_title"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecommenderView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"> <!--padding-->
+
+        <LinearLayout
+            android:id="@+id/pagesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"/>
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/btnRcmReturn"
+        android:id="@+id/rcmBtnReturn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="돌아가기"
         android:textSize="16sp"
         android:textStyle="bold"/>
-
 </LinearLayout>
