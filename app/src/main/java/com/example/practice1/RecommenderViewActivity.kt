@@ -22,6 +22,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
+import kotlinx.coroutines.*
 
 class RecommenderViewActivity : AppCompatActivity() {
     private lateinit var binding: RecommenderActivityBinding
@@ -49,42 +50,48 @@ class RecommenderViewActivity : AppCompatActivity() {
 
         val inputMovie = movies.find { it.id == data.id }
 
-
         if (inputMovie != null) {
             val inputGenreId = inputMovie.genres
             val inputOverview = inputMovie.overview
 
-            try {
-                val inputOverviewEmbedding = bertInference.getEmbedding(inputOverview)
-                val top10Indices = genreSimilarity.getTopNIndices(inputGenreId, data.id, 10)
-                val top10Movies = top10Indices.map { movies[it] }
+            CoroutineScope(Dispatchers.Main).launch {
+                try {
+                    val inputOverviewEmbedding = withContext(Dispatchers.IO) {
+                        // 입력 영화의 임베딩 벡터 계산
+                        bertInference.getEmbedding(inputOverview)
+                    }
 
-                val similarities = mutableListOf<Pair<MovieData, Float>>()
-                for (movie in top10Movies) {
-                    val similarity = bertInference.getSimilarityWithEmbedding(inputOverviewEmbedding, movie.overview)
-                    similarities.add(Pair(movie, similarity))
+                    val top10Indices = withContext(Dispatchers.IO) {
+                        // 장르 기반 코사인 유사도로 상위 10개 영화 선택
+                        genreSimilarity.getTopNIndices(inputGenreId, data.id, 10)
+                    }
+
+                    val similarities = withContext(Dispatchers.IO) {
+                        val top10Movies = top10Indices.map { movies[it] }
+                        top10Movies.map { movie ->
+                            val similarity = bertInference.getSimilarityWithEmbedding(inputOverviewEmbedding, movie.overview)
+                            Pair(movie, similarity)
+                        }.sortedByDescending { it.second }.take(5)
+                    }
+
+                    val top5Movies = similarities.sortedByDescending { it.second }.take(5).map { it.first }
+                    setupRecyclerView(top5Movies, imageUrls)
+                    fetchApiData(top5Movies)
+
+                    for ((movie, similarity) in similarities) {
+                        Log.d("RecommenderViewActivity", "Movie: ${movie.title}, Similarity: $similarity")
+                    }
+                } catch (e: Exception) {
+                    Log.e("RecommenderViewActivity", "Error processing movie data", e)
                 }
-
-                val top5Movies = similarities.sortedByDescending { it.second }.take(5).map { it.first }
-                setupRecyclerView(top5Movies, imageUrls)
-                fetchApiData(top5Movies)
-
-                for ((movie, similarity) in similarities) {
-                    Log.d("RecommenderViewActivity", "Movie: ${movie.title}, Similarity: $similarity")
-                }
-            } catch (e: Exception) {
-                Log.e("RecommenderViewActivity", "Error processing movie data", e)
-            }
+           }
         } else {
             Log.d("RecommenderViewActivity", "Movie with ID ${data.id} not found.")
         }
-
-
-
+        
         btnReturn.setOnClickListener {
             finish()
         }
-
     }
 
     private fun fetchApiData(top5Movies : List<MovieData> ){
