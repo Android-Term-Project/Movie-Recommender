@@ -2,6 +2,18 @@
 # Movie Recommender
 > **부산대학교 정보컴퓨터공학부 <소프트웨어설계및실험> 과목 Term project** <br/> **개발기간: 2024.05 ~ 2024.06**
 
+## 프로젝트 소개
+
+Movie Recommender는 부산대학교 내 과목 중 하나인 <소프트웨어설계및실험> 과목의 term project의 결과물이며, 대략 2주 정도 개발하였습니다.
+주제는 자유주제로 수업 시간에 배운 안드로이드를 활용하여 어플리케이션을 만드는 것이었고, 저희는 AI에 관심이 있어 안드로이드 내에서 추천시스템을 구현해보았습니다.
+
+- 영화 목록 및 상세 정보는 [TMDB API](https://developer.themoviedb.org/reference/intro/getting-started)를 사용하여 가져오고, 추천 시스템엔 [TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata) 파일을 이용합니다.
+
+- Content-Based 방식의 추천 시스템을 사용하며, 유저가 영화를 선택했을 때 해당 영화의 정보만을 이용해 유사한 영화를 추천합니다.
+
+- 파이프라인은 Kotlin으로 구현했으며 문장 임베딩에 사용한 DistilBERT 모델은 .ptl 파일로 만들어 프로젝트의 asset 디렉토리 내에 위치하고 사용합니다.
+
+
 ## 팀 소개
 
 |      김명석       |          정지윤         |                                                                                                               
@@ -12,33 +24,20 @@
 | 부산대학교 정보컴퓨터공학부 3학년 | 부산대학교 정보컴퓨터공학부 3학년 |
 
 
-## 프로젝트 소개
-
-Movie Recommender는 부산대학교 내 과목 중 하나인 <소프트웨어설계및실험> 과목의 term project의 결과물이며, 대략 2주 정도 개발하였습니다. 주제는 자유주제로 수업 시간에 배운 안드로이드를 활용하여 어플리케이션을 만드는 것이었고, 저희는 AI에 관심이 있어 안드로이드 내에서 추천시스템을 구현해보았습니다. 파이프라인은 Kotlin으로 구현했으며
-
-
 ## Stacks 🐈
 
+### OS
+![Android](https://img.shields.io/badge/Android-34A853?style=for-the-badge&logo=Android&logoColor=white)
+
 ### Environment
-![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=Visual%20Studio%20Code&logoColor=white)
+![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84?style=for-the-badge&logo=Android%20Studio&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white)
 ![Github](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white)             
 
-### Config
-![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)        
-
 ### Development
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=Javascript&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Strapi](https://img.shields.io/badge/Strapi-2F2E8B?style=for-the-badge&logo=Strapi&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=Next.js&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=Bootstrap&logoColor=white)
-![Material UI](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=MUI&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=Kotlin&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=61DAFB)
 
-### Communication
-![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white)
-![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white)
-![GoogleMeet](https://img.shields.io/badge/GoogleMeet-00897B?style=for-the-badge&logo=Google%20Meet&logoColor=white)
 
 ---
 ## 화면 구성 📺
