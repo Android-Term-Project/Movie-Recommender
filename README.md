@@ -1,73 +1,27 @@
-# Voluntain-2nd
+# Movie Recommender
 
 <div align="center">
 <img width="329" alt="image" src="https://user-images.githubusercontent.com/50205887/207568862-cdc9e2c0-b03c-43ff-bf46-3ba79a110d0c.png">
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FVoluntain-SKKU%2FVoluntain-2nd&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
-
 </div>
 
-# Voluntain Web Page v2.0
-> **성균관대학교 소프트웨어학과 온라인 해외봉사 단체** <br/> **개발기간: 2022.03 ~ 2022.10**
+# Movie Recommender
+> **부산대학교 정보컴퓨터공학부 <소프트웨어설계및실험> 과목 Term project** <br/> **개발기간: 2024.05 ~ 2024.06**
 
-## 배포 주소
+## 팀 소개
 
-> **개발 버전** : [http://voluntain.cs.skku.edu/](http://voluntain.cs.skku.edu/) <br>
-> **프론트 서버** : [http://voluntain.cs.skku.edu:33307/](http://voluntain.cs.skku.edu:33307/)<br>
-> **백엔드 서버** : [http://voluntain.cs.skku.edu:2223/](http://voluntain.cs.skku.edu:2223/)<br>
+|      김명석       |          정지윤         |                                                                                                               
+| :------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------: |
+|   <img width="160px" src="https://github.com/Android-Term-Project/Movie-Recommender/assets/62553866/b335b91f-c0eb-4646-a401-622e35837896" />    |                      <img width="160px" src="https://github.com/Android-Term-Project/Movie-Recommender/assets/62553866/fe597c6b-2657-4319-bc14-ba4f49960452" />    |
+|   UI/Design 개발   |  ML/DL 개발  |
+|   [@mangsgi](https://github.com/mangsgi)   |    [@enchantee00](https://github.com/enchantee00)  |
+| 부산대학교 정보컴퓨터공학부 3학년 | 부산대학교 정보컴퓨터공학부 3학년 |
 
-## 웹개발팀 소개
-
-|      박지예       |          서채연         |       이현정         |                                                                                                               
-| :------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | 
-|   <img width="160px" src="https://user-images.githubusercontent.com/50205887/205326013-af001243-a77d-4601-8bfc-aa713931cf95.png" />    |                      <img width="160px" src="https://user-images.githubusercontent.com/50205887/207570536-f5a82e48-99a1-4399-91d3-75fc5f8f3349.png" />    |                   <img width="160px" src="https://user-images.githubusercontent.com/50205887/207570634-247c3715-a54e-4f63-8c08-9b266f8a35f7.png"/>   |
-|   [@parkjiye](https://github.com/parkjiye)   |    [@ChaeyeonSeo](https://github.com/ChaeyeonSeo)  | [@hyunjeong408](https://github.com/hyunjeong408)  |
-| 성균관대학교 소프트웨어학과 4학년 | 성균관대학교 소프트웨어학과 4학년 | 성균관대학교 소프트웨어학과 4학년 |
 
 ## 프로젝트 소개
 
-발룬테인은 온라인 코딩 교육 봉사를 하는 단체입니다. 기존에 소프트웨어학과에서 월드프렌즈 ICT 봉사단이라는 개발도상국에서 약 학 달 간 코딩 교육 봉사를 하는 활동이 있었는데, 봉사가 일회성으로 끝나는 점에 아쉬움을 느껴 지속적인 봉사를 하고자 만들어졌습니다. 발룬테인에서는 스크래치, 파이썬 등 프로그래밍 언어에 관한 강의를 제공하고, 질의응답과 라이브 세션을 통해 한국 학생과 외국 학생 간에 소통이 이루어집니다.
+Movie Recommender는 부산대학교 내 과목 중 하나인 <소프트웨어설계및실험> 과목의 term project의 결과물이며, 대략 2주 정도 개발하였습니다. 주제는 자유주제로 수업 시간에 배운 안드로이드를 활용하여 어플리케이션을 만드는 것이었고, 저희는 AId에 관심이 있어 안드로이드 내에서 추천시스템을 구현해보았습니다. 파이프라인 구축과 모델 서빙을 안정적으로 하는 것이 목표였기에 심미적 완성도는 다소 떨어질 수 있습니다,,,!
 
-#### Voluntain will share the knowledge of programming.
-You can take easy-to-understand lectures created by our team, including Scratch and Python. Also, improve your understanding and application skills of programming with exercise questions in the lecture videos.
-
-#### Voluntain's website will give you a learning-friendly environment.
-
-Our website supports the following component.
-1. Various online lectures with detailed descriptions and exercise questions.
-2. Q&A section to ask questions freely.
-3. Function to check the lecture you watched recently.
-
-## 시작 가이드
-### Requirements
-For building and running the application you need:
-
-- [Node.js 14.19.3](https://nodejs.org/ca/blog/release/v14.19.3/)
-- [Npm 9.2.0](https://www.npmjs.com/package/npm/v/9.2.0)
-- [Strapi 3.6.6](https://www.npmjs.com/package/strapi/v/3.6.6)
-
-### Installation
-``` bash
-$ git clone https://github.com/Voluntain-SKKU/Voluntain-2nd.git
-$ cd Voluntain-2nd
-```
-#### Backend
-```
-$ cd strapi-backend
-$ nvm use v.14.19.3
-$ npm install
-$ npm run develop
-```
-
-#### Frontend
-```
-$ cd voluntain-app
-$ nvm use v.14.19.3
-$ npm install 
-$ npm run dev
-```
-
----
 
 ## Stacks 🐈
 
@@ -103,15 +57,9 @@ $ npm run dev
 ---
 ## 주요 기능 📦
 
-### ⭐️ 강좌 선택 및 강의 영상 시청 기능
-- Scratch, Python 2개 강좌 및 각 강좌마다 10개 가량의 강의 영상 제공
-- 추후 지속적으로 강좌 추가 및 업로드 예정
-
-### ⭐️ 강의 관련 및 단체에 대한 자유로운 댓글 작성 가능
-- Disqus를 이용하여 강의 관련 질문이나 단체에 대한 질문 작성 가능
-
-### ⭐️ 이어 학습하기 기능
-- Cookie 기능을 이용하여 이전에 학습했던 내용 이후부터 바로 학습 가능
+### ⭐️ 추천 시스템
+- 장르 ID를 기준으로 코사인 유사도를 계산하여 영화 10개 선택
+- 이후 10개 영화의 줄거리를 DistilBERT를 활용하여 유사한 영화 선택
 
 ---
 ## 아키텍쳐
