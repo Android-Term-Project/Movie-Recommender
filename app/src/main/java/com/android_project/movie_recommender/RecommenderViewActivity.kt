@@ -2,15 +2,11 @@ package com.android_project.movie_recommender
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.android_project.movie_recommender.databinding.RecommenderActivityBinding
-import com.android_project.movie_recommender.databinding.RecyclerViewBinding
 import com.android_project.movie_recommender.pipeline.BERTInference
 import com.android_project.movie_recommender.pipeline.GenreSimilarity
 import com.android_project.movie_recommender.pipeline.MovieDataLoader
@@ -31,7 +27,7 @@ class RecommenderViewActivity : AppCompatActivity() {
     private lateinit var bertInference: BERTInference
     private lateinit var genreSimilarity: GenreSimilarity
     private lateinit var movies: List<MovieData>
-    private lateinit var imageUrls: MutableList<String>
+    private lateinit var movieDatas: MutableList<OneMovieResponse>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +42,7 @@ class RecommenderViewActivity : AppCompatActivity() {
 
         val data: Movie = intent.getParcelableExtra("data")!!
         val btnReturn: Button = findViewById(R.id.rcmBtnReturn)
-        imageUrls = mutableListOf()
+        movieDatas = mutableListOf()
 
         val inputMovie = movies.find { it.id == data.id }
 
@@ -75,7 +71,6 @@ class RecommenderViewActivity : AppCompatActivity() {
                     }
 
                     val top5Movies = similarities.sortedByDescending { it.second }.take(5).map { it.first }
-                    setupRecyclerView(top5Movies, imageUrls)
                     fetchApiData(top5Movies)
 
                     for ((movie, similarity) in similarities) {
@@ -104,21 +99,19 @@ class RecommenderViewActivity : AppCompatActivity() {
 
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    Log.e("RecommenderViewHolder", "API Call failed", e)
+                    Log.e("RecommenderViewActivity", "API Call failed", e)
                 }
 
                 override fun onResponse(call: Call, response: Response) {
                     if (response.isSuccessful) {
                         val responseBody = response.body?.string()
-                        Log.d("API Response Body", responseBody ?: "No response body")  // 로그 추가
+                        Log.d("RecommenderViewActivity API", responseBody ?: "No response body")  // 로그 추가
                         responseBody?.let {
-                            val imageUrl = parseImageUrl(it)
+                            val movieData = parseMovieData(it)
                             runOnUiThread {
-                                // Ensure thread safety when updating UI components
-                                imageUrls.add(imageUrl)
-//                                adapter.addImageUrls(imageUrl)
+                                movieDatas.add(movieData)
                                 adapter.notifyDataSetChanged()  // Notify the adapter to refresh views
-                                Log.d("API Response Body", imageUrl ?: "No response body")  // 로그 추가
+                                Log.d("RecommenderViewActivity API", "${movieData.title}")  // 로그 추가
                             }
                         }
                     } else {
@@ -127,20 +120,17 @@ class RecommenderViewActivity : AppCompatActivity() {
                 }
             })
         }
+        setupRecyclerView(movieDatas)
     }
 
-    private fun parseImageUrl(jsonResponse: String): String {
+    private fun parseMovieData(jsonResponse: String): OneMovieResponse {
         val gson = Gson()
         val movieResponse = gson.fromJson(jsonResponse, OneMovieResponse::class.java)
-        return if (movieResponse.poster_path != null) {
-            "https://image.tmdb.org/t/p/original/${movieResponse.poster_path}"
-        } else {
-            "https://image.tmdb.org/t/p/original/z1p34vh7dEOnLDmyCrlUVLuoDzd.jpg" // 기본 이미지 URL 또는 비어있는 문자열
-        }
+        return movieResponse
     }
 
-    private fun setupRecyclerView(movieList: List<MovieData>, imageUrls: MutableList<String>) {
-        adapter = RecommenderAdapter(movieList.toMutableList(), imageUrls)
+    private fun setupRecyclerView(movieDatas: MutableList<OneMovieResponse>) {
+        adapter = RecommenderAdapter(movieDatas)
         binding.RecommenderView.layoutManager = LinearLayoutManager(this)
         binding.RecommenderView.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
         binding.RecommenderView.adapter = adapter

@@ -1,57 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white"> <!-- 기본 배경을 흰색으로 설정 -->
 
-
-    <ImageView
-        android:id="@+id/movie_image"
-        android:layout_width="150dp"
-        android:layout_height="225dp"
-        android:scaleType="centerCrop"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true" />
-
-    <TextView
-        android:id="@+id/movie_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:fontFamily="sans-serif-black"
-        android:layout_below="@id/movie_image"
-        android:layout_centerInParent="true"/>
-
-    <TextView
-        android:id="@+id/movie_overview"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_below="@id/movie_title" />
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded_background"> <!-- 둥근 모서리의 배경 적용 -->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btnReturn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="돌아가기"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+    <!-- 여기에 기존의 모든 뷰들을 추가 -->
+        <ImageView
+            android:id="@+id/movie_image"
+            android:layout_width="180dp"
+            android:layout_height="270dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="20dp"
+            android:scaleType="centerCrop" />
 
-        <Button
-            android:id="@+id/btnRecommender"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/movie_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="추천 영화"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            android:textSize="24sp"
+            android:layout_marginHorizontal="10dp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-black"
+            android:layout_below="@id/movie_image"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/movie_vote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginVertical="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/movie_title"
+            android:textColor="@color/black"/>
+
+
+        <TextView
+            android:id="@+id/movie_genres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginVertical="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/movie_vote"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/movie_runtime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginVertical="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/movie_genres"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/movie_overview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginVertical="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/movie_runtime"
+            android:textColor="@color/black"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnReturn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="돌아가기"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnRecommender"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="추천 영화"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </RelativeLayout>
 </RelativeLayout>
